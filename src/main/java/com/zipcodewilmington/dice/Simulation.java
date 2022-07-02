@@ -4,17 +4,17 @@ public class Simulation {
 
     private int numThrows;
     private int numDice;
-    private String results;
+    private StringBuilder results;
 
     public Simulation (int numThrows) {
         this.numThrows = numThrows;
         this.numDice = 2;
-        this.results = "";
+        this.results = new StringBuilder("");
     }
     public Simulation (int numThrows, int numDice) {
         this.numThrows = numThrows;
         this.numDice = numDice;
-        this.results = "";
+        this.results = new StringBuilder("");
     }
 
     public int getNumDice() {
@@ -34,16 +34,22 @@ public class Simulation {
     }
 
     public void runSimulation() {
-        // create Dice and Bins (based on numDice)
-        // run numThrows rolls
-        // call parseResults sending it the bins
+        Dice dice = new Dice(numDice);
+        Bins bins = new Bins(6 * numDice);
+
+        for (int i = 0; i < numThrows; i++) {
+            bins.incrementBin(dice.tossAndSum());
+        }
+
+        parseResults(bins);
     }
 
-    private void parseResults(Bins bins) {
-
+    public void parseResults(Bins bins) {
+        // specific for 2 dice with 6 sides, could pass it the dice?
+        for (int i = 2; i <= 12; i++) {
+            System.out.println("bin number " + i + " has " + bins.getBin(i) + " rolls.");
+        }
     }
 
-    public String printResults() {
-        return results;
-    }
+    public void printResults() { System.out.println(results); }
 }

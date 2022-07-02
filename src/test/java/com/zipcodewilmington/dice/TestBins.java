@@ -30,4 +30,16 @@ public class TestBins {
         // Then
         Assertions.assertEquals(3, actual);
     }
+
+    @Test
+    public void sizeTest() {
+        // Given a bin is created
+        Bins bins = new Bins(12);
+
+        // When a bin is incremented and retrieved with getBin
+        int actual = bins.size();
+
+        // Then
+        Assertions.assertEquals(13, actual);
+    }
 }
