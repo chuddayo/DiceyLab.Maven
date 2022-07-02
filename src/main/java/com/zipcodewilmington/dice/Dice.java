@@ -15,7 +15,13 @@ public class Dice {
         return numDice;
     }
 
-//    public int roll() {
-//
-//    }
+    public int tossAndSum() {
+        int diceSum = 0;
+        int counter = 0;
+        while (counter < numDice) {
+            diceSum += randNum.nextInt(numSides) + 1;
+            counter++;
+        }
+        return diceSum;
+    }
 }
