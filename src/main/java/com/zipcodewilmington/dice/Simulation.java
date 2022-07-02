@@ -40,7 +40,7 @@ public class Simulation {
         Dice dice = new Dice(numDice);
         Bins bins = new Bins(6 * numDice);
 
-        for (int i = 0; i < numThrows; i++) {
+        for (int i = 1; i <= numThrows; i++) {
             bins.incrementBin(dice.tossAndSum());
         }
 
