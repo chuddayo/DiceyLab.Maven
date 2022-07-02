@@ -1,5 +1,6 @@
 package com.zipcodewilmington.dice;
 
+import java.util.Formatter;
 public class Simulation {
 
     private int numThrows;
@@ -43,12 +44,15 @@ public class Simulation {
 
         parseResults(bins);
     }
-
-    public void parseResults(Bins bins) {
+    public void clearResults() {
+        results = new StringBuilder();
+    }
+    private void parseResults(Bins bins) {
+        clearResults();
         // specific for 2 dice with 6 sides, could pass it the dice?
         for (int i = 2; i <= 12; i++) {
-            System.out.printf("%2d :%9d: %3.2f %s\n", i, bins.getBin(i), (1.0 * bins.getBin(i) / numThrows),
-                    getStarsAsPercentage(1.0 * bins.getBin(i) / numThrows));
+            results.append(String.format("%2d :%9d: %3.2f %s\n", i, bins.getBin(i), (1.0 * bins.getBin(i) / numThrows),
+                    getStarsAsPercentage(1.0 * bins.getBin(i) / numThrows)));
         }
     }
 

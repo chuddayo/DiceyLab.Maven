@@ -42,4 +42,16 @@ public class TestBins {
         // Then
         Assertions.assertEquals(13, actual);
     }
+
+    @Test
+    public void sizeTest2() {
+        // Given a bin is created
+        Bins bins = new Bins(25);
+
+        // When a bin is incremented and retrieved with getBin
+        int actual = bins.size();
+
+        // Then
+        Assertions.assertNotEquals(28, actual);
+    }
 }
