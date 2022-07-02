@@ -8,18 +8,12 @@ public class Bins {
     public Bins (int maxBinNum) {
         results = new ArrayList<Integer>(Collections.nCopies(maxBinNum + 1, 0));
     }
-    public Bins (int low, int maxBinNum) {
-        results = new ArrayList<Integer>(Collections.nCopies(maxBinNum + 1, 0));
-    }
-
     public Integer getBin(int binNum) {
         return this.results.get(binNum);
     }
-
     public void incrementBin(int binNum) {
         results.set(binNum, results.get(binNum) + 1);
     }
-
     public int size() { return results.size();
     }
 }

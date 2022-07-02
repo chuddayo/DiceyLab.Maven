@@ -6,19 +6,6 @@ public class TestBins {
     @Test
     public void incrementBinTest() {
         // Given a bin is created
-        Bins bins = new Bins(2, 12);
-
-        // When a bin is incremented and retrieved with getBin
-        bins.incrementBin(3);
-        int actual = bins.getBin(3);
-
-        // Then
-        Assertions.assertEquals(1, actual);
-    }
-
-    @Test
-    public void incrementBinTest2() {
-        // Given a bin is created
         Bins bins = new Bins(12);
 
         // When a bin is incremented and retrieved with getBin
