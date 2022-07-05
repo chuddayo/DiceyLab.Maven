@@ -52,7 +52,7 @@ public class Simulation {
     public void parseResults(Bins bins) {
         clearResults();
         // specific for 2 dice with 6 sides, could pass it the dice?
-        for (int i = 2; i <= 12; i++) {
+        for (int i = numDice; i <= numDice * 6; i++) {
             results.append(String.format("%2d :%9d: %4.2f %s\n", i, bins.getBin(i), (1.0 * bins.getBin(i) / numThrows),
                     getStarsAsPercentage(1.0 * bins.getBin(i) / numThrows)));
         }
